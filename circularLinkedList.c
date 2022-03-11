@@ -15,6 +15,12 @@ void PrintList(SLLI* headOfTheList);
 //Function that add items at the end of the circular linkedlist
 SLLI* AddItemToEnd(SLLI* headOfTheList, int adding)
 {
+	if(headOfTheList == NULL){
+		headOfTheList = (SLLI*)malloc(sizeof(SLLI));
+		headOfTheList->data = adding;
+		headOfTheList->next = headOfTheList;
+		return headOfTheList;
+	}
     SLLI* iter = headOfTheList;
     while(iter->next != headOfTheList){
         iter = iter->next;
@@ -118,15 +124,15 @@ int main(){
     SLLI* headOfTheList;
     headOfTheList = NULL;
     
-    headOfTheList = AddItemInOrder(headOfTheList, 88);
-    headOfTheList = AddItemInOrder(headOfTheList, 30);
-    headOfTheList = AddItemInOrder(headOfTheList, 20);
-    headOfTheList = AddItemInOrder(headOfTheList, 12);
-    headOfTheList = AddItemInOrder(headOfTheList, 2);
-    headOfTheList = AddItemInOrder(headOfTheList, 67);
-    headOfTheList = AddItemInOrder(headOfTheList, 400);
-    headOfTheList = AddItemInOrder(headOfTheList, 98);
-    headOfTheList = AddItemInOrder(headOfTheList, 3);
+    headOfTheList = AddItemToEnd(headOfTheList, 88);
+    headOfTheList = AddItemToEnd(headOfTheList, 30);
+    headOfTheList = AddItemToEnd(headOfTheList, 20);
+    headOfTheList = AddItemToEnd(headOfTheList, 12);
+    headOfTheList = AddItemToEnd(headOfTheList, 2);
+    headOfTheList = AddItemToEnd(headOfTheList, 67);
+    headOfTheList = AddItemToEnd(headOfTheList, 400);
+    headOfTheList = AddItemToEnd(headOfTheList, 98);
+    headOfTheList = AddItemToEnd(headOfTheList, 3);
     
     PrintList(headOfTheList);
     
